@@ -10,7 +10,9 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
       - name: Extract zip
-        run: unzip NeltraStack-source.zip
+        run: unzip NeltraStack-source.zip && ls
+      - name: Check pom
+        run: cat NeltraStack/pom.xml
       - run: cd NeltraStack && mvn clean package
       - uses: actions/upload-artifact@v4
         with:
